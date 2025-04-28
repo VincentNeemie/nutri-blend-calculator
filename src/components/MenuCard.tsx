@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -29,8 +28,8 @@ const MenuCard: React.FC<MenuCardProps> = ({
       <div className="text-primary text-4xl mb-2">
         {icon}
       </div>
-      <h2 className="text-xl font-semibold text-gray-800 text-center">{title}</h2>
-      <p className="text-gray-600 text-center text-sm">{description}</p>
+      <h2 className="text-xl font-semibold text-card-foreground text-center">{title}</h2>
+      <p className="text-muted-foreground text-center text-sm">{description}</p>
     </Link>
   );
 };
