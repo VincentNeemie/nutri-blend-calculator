@@ -1,11 +1,42 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import React from 'react';
+import MenuCard from '@/components/MenuCard';
+import { Plus, FlaskRound, List } from 'lucide-react';
+
+const Index: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="page-container flex flex-col items-center justify-center">
+      <div className="mb-10 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
+          Calculadora de Rações
+        </h1>
+        <p className="text-lg text-gray-600 max-w-xl mx-auto">
+          Crie e gerencie fórmulas de ração com facilidade, calculando automaticamente 
+          os nutrientes e preços finais.
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <MenuCard 
+          to="/ingredientes"
+          title="Cadastrar Ingredientes"
+          description="Adicione e gerencie os ingredientes disponíveis para suas fórmulas."
+          icon={<Plus className="h-10 w-10" />}
+        />
+        
+        <MenuCard 
+          to="/criar-formula"
+          title="Criar Nova Fórmula"
+          description="Crie fórmulas de ração balanceadas a partir dos ingredientes cadastrados."
+          icon={<FlaskRound className="h-10 w-10" />}
+        />
+        
+        <MenuCard 
+          to="/listar-formulas"
+          title="Listar Fórmulas Salvas"
+          description="Veja e gerencie todas as fórmulas que você já salvou."
+          icon={<List className="h-10 w-10" />}
+        />
       </div>
     </div>
   );
