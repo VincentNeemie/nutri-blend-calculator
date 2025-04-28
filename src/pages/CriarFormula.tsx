@@ -1,6 +1,5 @@
-
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { Formula, getFormulas } from '@/utils/storage';
@@ -9,6 +8,7 @@ import { useToast } from '@/components/ui/use-toast';
 
 const CriarFormula: React.FC = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [editingFormula, setEditingFormula] = useState<Formula | undefined>(undefined);
   
   const handleSaveFormula = () => {
@@ -17,10 +17,12 @@ const CriarFormula: React.FC = () => {
       description: "A fórmula foi salva com sucesso."
     });
     setEditingFormula(undefined);
+    navigate('/listar-formulas');
   };
   
   const handleCancelForm = () => {
     setEditingFormula(undefined);
+    navigate('/');  // Navigate back to the home page when cancel is clicked
   };
   
   return (
